@@ -1,0 +1,10 @@
+{
+    "Text": "The hall is red, this isn't good sign!  There is an exit sign at the end of the hallway.",
+    "Options": [
+        {
+            "Selector": "1",
+            "Text": "Go towards the exit",
+            "Path": "/test/BranchB2.json"
+        }
+    ]
+}

@@ -55,8 +55,5 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
-client.on(Events.MessageCreate, () => console.log("Message Recieved"));
-client.on(Events.MessageDelete, (arg) => console.log(`I saw that ${arg.content}`));
-
 // Log in to Discord with your client's token
 client.login(process.env.BOTTOKEN);

@@ -1,0 +1,10 @@
+{
+    "Text": "The hall is green, this must be a good sign!  There is an exit sign at the end of the hallway.",
+    "Options": [
+        {
+            "Selector": "1",
+            "Text": "Leave through the exit",
+            "Path": "/test/MergeAB.json"
+        }
+    ]
+}

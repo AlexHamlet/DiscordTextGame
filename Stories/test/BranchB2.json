@@ -1,0 +1,10 @@
+{
+    "Text": "It looks like walking down the hall turned it green.  Maybe your position caused the room to change color?  I'm not weird.  You're the one imagining a color chaning room.",
+    "Options": [
+        {
+            "Selector": "1",
+            "Text": "Leave through the exit",
+            "Path": "/test/MergeAB.json"
+        }
+    ]
+}

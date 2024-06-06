@@ -1,0 +1,10 @@
+{
+    "Text": "Display",
+    "Options": [
+        {
+            "Selector": "Choose option (/choose 1)",
+            "Text": "Choose Text",
+            "Path": "/StoryName/NextFile.json"
+        }
+    ]
+}

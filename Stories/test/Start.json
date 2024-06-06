@@ -1,0 +1,15 @@
+{
+    "Text": "Welcome to the choose your own adventure tutorial!  You find yourself standing before two doors leading to separate hallways.  Which door would you like to go through?  To begin, /choose an option from the menu.  Have fun!",
+    "Options": [
+        {
+            "Selector": "1",
+            "Text": "I'd like to go through the left door, please.",
+            "Path": "/test/BranchA.json"
+        },
+        {
+            "Selector": "2",
+            "Text": "I'd like to go through the right door, please.",
+            "Path": "/test/BranchB.json"
+        }
+    ]
+}
