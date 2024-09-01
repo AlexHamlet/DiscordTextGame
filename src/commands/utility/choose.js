@@ -18,12 +18,12 @@ module.exports = {
         const userId = interaction.user.id;
 
         //Read file
-        let saveData = loadGame(userId);
+        let playerSaveData = loadGame(userId);
         console.log(`SaveData: ${saveData}`);
 
         //Load Page data
-        let page = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../', saveData), { encoding: 'utf8', flag: 'r' }));
-        console.log(`Page: ${page}`);
+        // let page = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../', saveData), { encoding: 'utf8', flag: 'r' }));
+        // console.log(`Page: ${page}`);
 
         //Choose option
         if (!page['Options']) {

@@ -4,6 +4,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const { saveGame } = require('../../save')
 const { displayPage } = require('../../display')
 
+//TODO let user choose from a list of stories
 function getStories() {
     const foldersPath = path.join(__dirname, 'stories');
     const storyFolders = fs.readdirSync(foldersPath);
@@ -24,11 +25,11 @@ module.exports = {
 
         const userId = interaction.user.id;
         const chosenStory = interaction.options.getString('story');
-        const storyPath = path.join(`Stories/${chosenStory}/Start.json`);
+        const storyPath = path.join(`Stories/${chosenStory}.json`);
 
         saveGame(userId, storyPath);
 
-        responseMessage = displayPage(storyPath);
+        responseMessage = displayPage(storyPath, "Start");
 
         await interaction.reply(responseMessage);
     },
