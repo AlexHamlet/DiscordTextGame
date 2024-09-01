@@ -10,20 +10,20 @@ function saveGame(userId, story, pageId) {
     let saveContents = [];
     if(fs.existsSync(saveFile)){
         //Read contents of Save file
-        saveContents = JSON.parse(fs.readFile(saveFile));
+        saveContents = JSON.parse(fs.readFileSync(saveFile, { encoding: 'utf8', flag: 'r' }));
     }
 
     //Modify the contents
     let storySave = {};
     for(let p = 0;p < saveContents.length;p++){
         if(saveContents[p]['story'] == story){
-            storySave = saveContents[p];
             delete saveContents[p];
             break;
         }
     }
     storySave['pageId'] = pageId;
-    saveContents.unShift(storySave)
+    storySave['story'] = story;
+    saveContents.unshift(storySave)
 
     //Resave file
     fs.writeFile(saveFile, JSON.stringify(saveContents), err => {

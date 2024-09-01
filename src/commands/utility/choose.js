@@ -17,13 +17,29 @@ module.exports = {
         let message = 'Placeholder message'
         const userId = interaction.user.id;
 
-        //Read file
-        let playerSaveData = loadGame(userId);
-        console.log(`SaveData: ${saveData}`);
+        //Get Last Story
+        let saveFile = path.join(__dirname, '../../../', 'Saves/' + userId + '.json');
+        if (!fs.existsSync(saveFile)) {
+            await interaction.reply("It seems like you haven't opened a story yet.  Run the /start command to do so.");
+            return;
+        }
+        let saveContents = JSON.parse(fs.readFileSync(saveFile, { encoding: 'utf8', flag: 'r' }));
+        let story = saveContents[0]['story'];
 
-        //Load Page data
-        // let page = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../', saveData), { encoding: 'utf8', flag: 'r' }));
-        // console.log(`Page: ${page}`);
+        //Load the story file
+        let storyFile = path.join(__dirname, '../../../', 'Stories/' + story + '.json');
+        let storyFileContents = JSON.parse(fs.readFileSync(storyFile, { encoding: 'utf8', flag: 'r' }));
+
+        //Find page
+        let page = {}
+        let pageId = loadGame(userId, story);
+        console.log(`pageId ${pageId}`);
+        for (let p = 0; p < storyFileContents.length; p++) {
+            if (storyFileContents[p]['id'] == pageId) {
+                page = storyFileContents[p];
+                break;
+            }
+        }
 
         //Choose option
         if (!page['Options']) {
@@ -39,10 +55,10 @@ module.exports = {
         }
 
         //Save the Game
-        saveGame(userId, "Stories/" + option['Path']);
+        saveGame(userId, story, option['Path']);
 
         //Display Text
-        message = displayPage(path.join(__dirname, '../../../Stories/', option['Path']));
+        message = displayPage(story, pathId);
 
         await interaction.reply(message);
     },

@@ -27,7 +27,7 @@ module.exports = {
         const chosenStory = interaction.options.getString('story');
         const storyPath = path.join(`Stories/${chosenStory}.json`);
 
-        saveGame(userId, storyPath);
+        saveGame(userId, chosenStory, "Start");
 
         responseMessage = displayPage(storyPath, "Start");
 

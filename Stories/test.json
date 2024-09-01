@@ -1,57 +1,55 @@
-{
-    "pages": [
-        {
-            "id": "Start",
-            "Text": "Welcome to the choose your own adventure tutorial!  You find yourself standing before two doors leading to separate hallways.  Which door would you like to go through?  To begin, /choose an option from the menu.  Have fun!",
-            "Options": [
-                {
-                    "Selector": "1",
-                    "Text": "I'd like to go through the left door, please.",
-                    "Path": "/test/BranchA.json"
-                },
-                {
-                    "Selector": "2",
-                    "Text": "I'd like to go through the right door, please.",
-                    "Path": "/test/BranchB.json"
-                }
-            ]
-        },
-        {
-            "id": "BranchA",
-            "Text": "The hall is green, this must be a good sign!  There is an exit sign at the end of the hallway.",
-            "Options": [
-                {
-                    "Selector": "1",
-                    "Text": "Leave through the exit",
-                    "Path": "/test/MergeAB.json"
-                }
-            ]
-        },
-        {
-            "id": "BranchB",
-            "Text": "The hall is red, this isn't good sign!  There is an exit sign at the end of the hallway.",
-            "Options": [
-                {
-                    "Selector": "1",
-                    "Text": "Go towards the exit",
-                    "Path": "/test/BranchB2.json"
-                }
-            ]
-        },
-        {
-            "id": "BranchB2",
-            "Text": "It looks like walking down the hall turned it green.  Maybe your position caused the room to change color?  I'm not weird.  You're the one imagining a color chaning room.",
-            "Options": [
-                {
-                    "Selector": "1",
-                    "Text": "Leave through the exit",
-                    "Path": "/test/MergeAB.json"
-                }
-            ]
-        },
-        {
-            "id": "MergeAB",
-            "Text": "You find yourself in a room with a small CRT.  The screen reads \"CONGRATULATIONS ON FINISHING THE TUTORIAL\".  Odd, I didn't know we were in a tutorial?"
-        }
-    ]
-}
+[
+    {
+        "id": "Start",
+        "Text": "Welcome to the choose your own adventure tutorial!  You find yourself standing before two doors leading to separate hallways.  Which door would you like to go through?  To begin, /choose an option from the menu.  Have fun!",
+        "Options": [
+            {
+                "Selector": "1",
+                "Text": "I'd like to go through the left door, please.",
+                "Path": "/test/BranchA.json"
+            },
+            {
+                "Selector": "2",
+                "Text": "I'd like to go through the right door, please.",
+                "Path": "/test/BranchB.json"
+            }
+        ]
+    },
+    {
+        "id": "BranchA",
+        "Text": "The hall is green, this must be a good sign!  There is an exit sign at the end of the hallway.",
+        "Options": [
+            {
+                "Selector": "1",
+                "Text": "Leave through the exit",
+                "Path": "/test/MergeAB.json"
+            }
+        ]
+    },
+    {
+        "id": "BranchB",
+        "Text": "The hall is red, this isn't good sign!  There is an exit sign at the end of the hallway.",
+        "Options": [
+            {
+                "Selector": "1",
+                "Text": "Go towards the exit",
+                "Path": "/test/BranchB2.json"
+            }
+        ]
+    },
+    {
+        "id": "BranchB2",
+        "Text": "It looks like walking down the hall turned it green.  Maybe your position caused the room to change color?  I'm not weird.  You're the one imagining a color chaning room.",
+        "Options": [
+            {
+                "Selector": "1",
+                "Text": "Leave through the exit",
+                "Path": "/test/MergeAB.json"
+            }
+        ]
+    },
+    {
+        "id": "MergeAB",
+        "Text": "You find yourself in a room with a small CRT.  The screen reads \"CONGRATULATIONS ON FINISHING THE TUTORIAL\".  Odd, I didn't know we were in a tutorial?"
+    }
+]
