@@ -1,8 +1,6 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const { SlashCommandBuilder } = require('discord.js');
-const { saveGame } = require('../../save')
-const { displayPage } = require('../../display')
+import { SlashCommandBuilder } from '@discordjs/builders';
+import displayPage from '../../display';
+import saveGame from '../../save';
 
 //TODO let user choose from a list of stories
 function getStories() {
@@ -20,7 +18,7 @@ module.exports = {
                 .setDescription('The story to begin')
                 .setRequired(true)),
 
-    async execute(interaction) {
+    async execute(interaction: { user: { id: any; }; options: { getString: (arg0: string) => any; }; reply: (arg0: string) => any; }) {
         let responseMessage = "Placeholder";
 
         const userId = interaction.user.id;

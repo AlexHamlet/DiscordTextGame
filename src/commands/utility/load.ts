@@ -1,6 +1,6 @@
-const fs = require('node:fs');
-const { SlashCommandBuilder } = require('discord.js');
-const { loadGame } = require('../../load');
+import { SlashCommandBuilder } from '@discordjs/builders';
+import loadGame from '../../load';
+import displayPage from '../../display';
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +10,7 @@ module.exports = {
             option.setName('story')
                 .setDescription('The story to load')
                 .setRequired(true)),
-        async execute(interaction) {
+        async execute(interaction: { user: { id: any; }; options: { getString: (arg0: string) => any; }; reply: (arg0: string) => any; }) {
             let responseMessage = "Placeholder";
     
             const userId = interaction.user.id;

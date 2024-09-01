@@ -1,19 +1,20 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const { SlashCommandBuilder } = require('discord.js');
-const { loadGame } = require('../../load');
-const { saveGame } = require('../../save');
-const { displayPage } = require('../../display');
+import loadGame from "../../load";
+import displayPage from "../../display";
+import saveGame from "../../save";
+import { StoryPath } from "../../types/StoryFile";
+import { SlashCommandBuilder } from '@discordjs/builders';
+import * as path from 'node:path';
+import * as fs from 'node:fs';
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('choose')
         .setDescription('Select an option from a menu')
-        .addStringOption(option =>
+        .addStringOption((option: any) =>
             option.setName('option')
                 .setDescription('The path to take')
                 .setRequired(true)),
-    async execute(interaction) {
+    async execute(interaction: any) {
         let message = 'Placeholder message'
         const userId = interaction.user.id;
 
@@ -24,9 +25,9 @@ module.exports = {
             return;
         }
         let saveContents = JSON.parse(fs.readFileSync(saveFile, { encoding: 'utf8', flag: 'r' }));
-        let story = {};
+        let story: string = "";
         for (const key of Object.keys(saveContents)) {
-            if(saveContents[key]['latest']){
+            if (saveContents[key]['latest']) {
                 story = key;
             }
         }
@@ -38,7 +39,6 @@ module.exports = {
         //Find page
         let pageId = loadGame(userId, story);
         let page = storyFileContents[pageId];
-        console.log(page);
 
         //Choose option
         if (!page['Options']) {
@@ -46,7 +46,7 @@ module.exports = {
             return;
         }
 
-        let option = page['Options'].find((element) => element.Selector == interaction.options.getString('option'));
+        let option = page['Options'].find((element: StoryPath) => element.Selector == interaction.options.getString('option'));
 
         if (!option) {
             await interaction.reply("I'm not sure how to convey that.  Ensure your selection is one of the given options.");

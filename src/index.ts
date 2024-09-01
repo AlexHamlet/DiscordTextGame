@@ -13,7 +13,7 @@ const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
 	const commandsPath = path.join(foldersPath, folder);
-	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+	const commandFiles = fs.readdirSync(commandsPath);
 	for (const file of commandFiles) {
 		const filePath = path.join(commandsPath, file);
 		const command = require(filePath);
@@ -29,11 +29,11 @@ for (const folder of commandFolders) {
 // When the client is ready, run this code (only once).
 // The distinction between `client: Client<boolean>` and `readyClient: Client<true>` is important for TypeScript developers.
 // It makes some properties non-nullable.
-client.once(Events.ClientReady, readyClient => {
+client.once(Events.ClientReady, (readyClient: { user: { tag: any; }; }) => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 });
 
-client.on(Events.InteractionCreate, async interaction => {
+client.on(Events.InteractionCreate, async (interaction: { isChatInputCommand: () => any; client: { commands: { get: (arg0: any) => any; }; }; commandName: any; replied: any; deferred: any; followUp: (arg0: { content: string; ephemeral: boolean; }) => any; reply: (arg0: { content: string; ephemeral: boolean; }) => any; }) => {
     if(!interaction.isChatInputCommand()) return;
 
     const command = interaction.client.commands.get(interaction.commandName);
