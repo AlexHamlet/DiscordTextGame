@@ -7,23 +7,20 @@ function saveGame(userId, story, pageId) {
     console.log(`SaveFile: ${saveFile}`);
 
     //Check if save file exists
-    let saveContents = [];
-    if(fs.existsSync(saveFile)){
+    let saveContents = {};
+    if (fs.existsSync(saveFile)) {
         //Read contents of Save file
         saveContents = JSON.parse(fs.readFileSync(saveFile, { encoding: 'utf8', flag: 'r' }));
     }
 
     //Modify the contents
     let storySave = {};
-    for(let p = 0;p < saveContents.length;p++){
-        if(saveContents[p]['story'] == story){
-            delete saveContents[p];
-            break;
-        }
+    for (const key of Object.keys(saveContents)) {
+        saveContents[key]['latest'] = false
     }
     storySave['pageId'] = pageId;
-    storySave['story'] = story;
-    saveContents.unshift(storySave)
+    storySave['latest'] = true;
+    saveContents[story] = storySave;
 
     //Resave file
     fs.writeFile(saveFile, JSON.stringify(saveContents), err => {

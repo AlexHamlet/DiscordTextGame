@@ -25,11 +25,11 @@ module.exports = {
 
         const userId = interaction.user.id;
         const chosenStory = interaction.options.getString('story');
-        const storyPath = path.join(`Stories/${chosenStory}.json`);
+        // const storyPath = path.join(`Stories/${chosenStory}`);
 
         saveGame(userId, chosenStory, "Start");
 
-        responseMessage = displayPage(storyPath, "Start");
+        responseMessage = displayPage(chosenStory, "Start");
 
         await interaction.reply(responseMessage);
     },

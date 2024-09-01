@@ -1,16 +1,13 @@
 const fs = require('node:fs');
+const path = require('node:path');
 
 function displayPage(story, pageId) {
   //Read file
-  let filecontents = JSON.parse(fs.readFileSync(story, { encoding: 'utf8', flag: 'r' }));
+  const storyPath = path.join(__dirname, '../Stories/' + story + '.json');
+  let filecontents = JSON.parse(fs.readFileSync(storyPath, { encoding: 'utf8', flag: 'r' }));
 
   //Read page
-  let page = {};
-  for (let p = 0; p < filecontents.length; p++) {
-    if (filecontents[p]['id'] == pageId) {
-      page = filecontents[p];
-    }
-  }
+  let page = filecontents[pageId];
 
   //Compile Return string
   let pageContents = page['Text'] + '\n\n';

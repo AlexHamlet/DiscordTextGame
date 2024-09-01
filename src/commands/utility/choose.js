@@ -24,22 +24,21 @@ module.exports = {
             return;
         }
         let saveContents = JSON.parse(fs.readFileSync(saveFile, { encoding: 'utf8', flag: 'r' }));
-        let story = saveContents[0]['story'];
+        let story = {};
+        for (const key of Object.keys(saveContents)) {
+            if(saveContents[key]['latest']){
+                story = key;
+            }
+        }
 
         //Load the story file
         let storyFile = path.join(__dirname, '../../../', 'Stories/' + story + '.json');
         let storyFileContents = JSON.parse(fs.readFileSync(storyFile, { encoding: 'utf8', flag: 'r' }));
 
         //Find page
-        let page = {}
         let pageId = loadGame(userId, story);
-        console.log(`pageId ${pageId}`);
-        for (let p = 0; p < storyFileContents.length; p++) {
-            if (storyFileContents[p]['id'] == pageId) {
-                page = storyFileContents[p];
-                break;
-            }
-        }
+        let page = storyFileContents[pageId];
+        console.log(page);
 
         //Choose option
         if (!page['Options']) {
@@ -58,7 +57,7 @@ module.exports = {
         saveGame(userId, story, option['Path']);
 
         //Display Text
-        message = displayPage(story, pathId);
+        message = displayPage(story, option['Path']);
 
         await interaction.reply(message);
     },
