@@ -2,51 +2,51 @@
     "Start": {
         "id": "Start",
         "Text": "Welcome to the choose your own adventure tutorial!  You find yourself standing before two doors leading to separate hallways.  Which door would you like to go through?  To begin, /choose an option from the menu.  Have fun!",
-        "Options": [
-            {
+        "Options": {
+            "1": {
                 "Selector": "1",
                 "Text": "I'd like to go through the left door, please.",
                 "Path": "BranchA"
             },
-            {
+            "2": {
                 "Selector": "2",
                 "Text": "I'd like to go through the right door, please.",
                 "Path": "BranchB"
             }
-        ]
+        }
     },
     "BranchA": {
         "id": "BranchA",
         "Text": "The hall is green, this must be a good sign!  There is an exit sign at the end of the hallway.",
-        "Options": [
-            {
+        "Options": {
+            "1": {
                 "Selector": "1",
                 "Text": "Leave through the exit",
                 "Path": "MergeAB"
             }
-        ]
+        }
     },
     "BranchB": {
         "id": "BranchB",
         "Text": "The hall is red, this isn't good sign!  There is an exit sign at the end of the hallway.",
-        "Options": [
-            {
+        "Options": {
+            "1": {
                 "Selector": "1",
                 "Text": "Go towards the exit",
                 "Path": "BranchB2"
             }
-        ]
+        }
     },
     "BranchB2": {
         "id": "BranchB2",
         "Text": "It looks like walking down the hall turned it green.  Maybe your position caused the room to change color?  I'm not weird.  You're the one imagining a color chaning room.",
-        "Options": [
-            {
+        "Options": {
+            "1": {
                 "Selector": "1",
                 "Text": "Leave through the exit",
                 "Path": "MergeAB"
             }
-        ]
+        }
     },
     "MergeAB": {
         "id": "MergeAB",

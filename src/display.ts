@@ -14,8 +14,8 @@ function displayPage(story: string, pageId: string) {
   let pageContents = page.Text + '\n\n';
 
   if (page.Options)
-    for (let p = 0; p < page.Options.length; p++) {
-      pageContents += `${page.Options[p].Selector}: ${page.Options[p].Text}\n`;
+    for (const key in page.Options) {
+      pageContents += `${page.Options[key].Selector}: ${page.Options[key].Text}\n`;
     }
 
   return pageContents;

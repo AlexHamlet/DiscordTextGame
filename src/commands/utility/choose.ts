@@ -46,7 +46,7 @@ module.exports = {
             return;
         }
 
-        let option = page['Options'].find((element: StoryPath) => element.Selector == interaction.options.getString('option'));
+        let option = page['Options'][interaction.options.getString('option')];
 
         if (!option) {
             await interaction.reply("I'm not sure how to convey that.  Ensure your selection is one of the given options.");
