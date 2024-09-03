@@ -1,0 +1,98 @@
+{
+    "startPage": {
+        "id": "startPage",
+        "Text": "You are standing in a dark room. There are two doors in front of you.",
+        "Options": {
+            "door1": {
+                "Selector": "Open the first door",
+                "Text": "You open the first door and see a long corridor.",
+                "Path": "corridorPage"
+            },
+            "door2": {
+                "Selector": "Open the second door",
+                "Text": "You open the second door and see a flight of stairs leading down.",
+                "Path": "stairsPage"
+            }
+        }
+    },
+    "corridorPage": {
+        "id": "corridorPage",
+        "Text": "You walk down the corridor and reach another door.",
+        "Options": {
+            "openDoor": {
+                "Selector": "Open the door at the end of the corridor",
+                "Text": "You open the door and enter a small room with a window.",
+                "Path": "windowPage"
+            },
+            "turnBack": {
+                "Selector": "Turn back and return to the dark room",
+                "Text": "You turn back and head towards the dark room.",
+                "Path": "startPage"
+            }
+        }
+    },
+    "stairsPage": {
+        "id": "stairsPage",
+        "Text": "You descend the stairs and find yourself in a basement.",
+        "Options": {
+            "explore": {
+                "Selector": "Explore the basement",
+                "Text": "You decide to explore the basement and find a hidden door.",
+                "Path": "hiddenDoorPage"
+            },
+            "goBack": {
+                "Selector": "Go back upstairs",
+                "Text": "You decide to go back upstairs.",
+                "Path": "startPage"
+            }
+        }
+    },
+    "windowPage": {
+        "id": "windowPage",
+        "Text": "Through the window, you see a beautiful garden.",
+        "Options": {
+            "jumpOut": {
+                "Selector": "Jump out of the window",
+                "Text": "You jump out of the window and land safely in the garden.",
+                "Path": "gardenPage"
+            },
+            "stayInside": {
+                "Selector": "Stay inside and look around the room",
+                "Text": "You decide to stay inside and explore the room.",
+                "Path": "corridorPage"
+            }
+        }
+    },
+    "hiddenDoorPage": {
+        "id": "hiddenDoorPage",
+        "Text": "You find a hidden door behind a bookshelf.",
+        "Options": {
+            "openHiddenDoor": {
+                "Selector": "Open the hidden door",
+                "Text": "You open the hidden door and find a treasure chest.",
+                "Path": "treasurePage"
+            },
+            "leaveHiddenDoor": {
+                "Selector": "Leave the hidden door and continue exploring",
+                "Text": "You decide to leave the hidden door alone.",
+                "Path": "basementPage"
+            }
+        }
+    },
+    "gardenPage": {
+        "id": "gardenPage",
+        "Text": "You are now in a beautiful garden filled with flowers.",
+        "Options": {
+            "exploreGarden": {
+                "Selector": "Explore the garden",
+                "Text": "You explore the garden and find a hidden path.",
+                "Path": "hiddenPathPage"
+            },
+            "goBackInside": {
+                "Selector": "Go back inside",
+                "Text": "You decide to go back inside the house.",
+                "Path": "windowPage"
+            }
+        }
+    }
+}

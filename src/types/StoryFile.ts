@@ -5,7 +5,7 @@ export interface StoryFile {
 export interface Page {
     id: string,
     Text: string,
-    Options: StoryPath[]
+    Options: {[Selector: string]: StoryPath}
 }
 
 export interface StoryPath {
